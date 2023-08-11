@@ -13,3 +13,12 @@ body {
     background-color: rgb(255, 0, 166);
     position: absolute;
 }
+
+.obstacle {
+    background-color: rgb(19, 156, 37);
+    position: absolute;
+}
+
+#page-gameover {
+    background-color: gray;
+}
