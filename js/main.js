@@ -65,7 +65,7 @@ class Obstacle {
     }
 }
 
-
+let points = 0;
 
 const player = new Player();
 
@@ -84,8 +84,18 @@ setInterval(() => {
 // move all obstacles
 setInterval(() => {
     obstaclesArr.forEach( (obstacleInstance) => {
+
+        // move
         obstacleInstance.moveDown();
 
+        // remove if outside
+        if( obstacleInstance.positionY < 0 - obstacleInstance.height ){   
+            obstacleInstance.domElement.remove(); 
+            obstaclesArr.shift(); // remove from the array
+            points++ // to add a highscore 
+        }
+
+        // detect collision 
         if (
             player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
             player.positionX + player.width > obstacleInstance.positionX &&
